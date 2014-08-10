@@ -26,22 +26,20 @@ def randomColor() = {
 val sg = hours.map(i => {
     val y = cr * math.sin(Pi2 * i/12) 
     val x = cr * math.cos(Pi2 * i/12)
-    val cm = randomColor  
     
     val t = newTurtle(x, y)
-    t.invisible()
+    t.invisible()    
+    t
+})
+
+sg.foreach(t => {
+    val cm = randomColor  
+
     t.setFillColor(cm)     // or use t.setFillColor(colors(i))
     t.setPenColor(cm)
     t.setPenThickness(1)
 
     t.circle(hr)
-    t
-})
-
-sg.foreach(t => {
-    t.setFillColor(white)
-    t.circle(hr)
-    pause(0.1)         // wait() will not work
-    t.setFillColor(randomColor)
-    t.circle(hr)
+    pause(0.1)             // wait() will not work
+    
 })
